@@ -11,9 +11,9 @@ const quicksand = Quicksand({
   weight: ['400', '500', '600', '700'],
 })
 
-const muli = Muli({
+const mulish = Mulish({
   subsets: ['latin'],
-  variable: '--font-muli',
+  variable: '--font-mulish',
   weight: ['400', '600'],
 })
 
@@ -28,10 +28,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${quicksand.variable} ${muli.variable}`}>
+    <html lang="en" className={`${quicksand.variable} ${mulish.variable}`}>
       <body
         style={{ fontFamily: 'var(--font-mulish), Mulish, sans-serif', margin: 0, backgroundColor: '#333' }}
-        className="antialiased"
       >
         <Header />
         {children}
