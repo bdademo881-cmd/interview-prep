@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Quicksand, Muli } from 'next/font/google'
+import { Quicksand, Mulish } from 'next/font/google'
 import './globals.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${quicksand.variable} ${muli.variable}`}>
       <body
-        style={{ fontFamily: 'Muli, sans-serif', margin: 0, backgroundColor: '#333' }}
+        style={{ fontFamily: 'var(--font-mulish), Mulish, sans-serif', margin: 0, backgroundColor: '#333' }}
         className="antialiased"
       >
         <Header />

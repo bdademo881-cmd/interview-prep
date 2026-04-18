@@ -36,7 +36,7 @@ export default function Services() {
         <div className="max-w-[900px] mx-auto">
           <p
             className="text-base md:text-lg leading-relaxed mb-12"
-            style={{ color: '#5e5e5e', fontFamily: 'Muli, sans-serif' }}
+            style={{ color: '#5e5e5e', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
           >
             Are you struggling to make sense of the mountains of data you collect? Our team of
             experts can help. We use the latest tools and techniques to clean and prepare your
@@ -58,7 +58,7 @@ export default function Services() {
             </p>
             <p
               className="text-base leading-relaxed"
-              style={{ color: '#1a2b3a', fontFamily: 'Muli, sans-serif' }}
+              style={{ color: '#1a2b3a', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
             >
               We helped a retail company increase their sales by 20% by analyzing their
               customer data and identifying key buying patterns.
@@ -77,7 +77,7 @@ export default function Services() {
               <li
                 key={item}
                 className="flex items-start gap-3 text-sm leading-relaxed"
-                style={{ color: '#5e5e5e', fontFamily: 'Muli, sans-serif' }}
+                style={{ color: '#5e5e5e', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
               >
                 <span style={{ color: '#64839e', marginTop: '2px' }}>▸</span>
                 {item}
@@ -88,7 +88,7 @@ export default function Services() {
           {/* CTA */}
           <p
             className="text-base md:text-lg leading-relaxed"
-            style={{ color: '#1a2b3a', fontFamily: 'Muli, sans-serif' }}
+            style={{ color: '#1a2b3a', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
           >
             Don&apos;t let your data go to waste.{' '}
             <a

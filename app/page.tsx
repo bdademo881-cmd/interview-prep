@@ -38,7 +38,7 @@ export default function Home() {
           </h1>
           <p
             className="text-base md:text-lg leading-relaxed"
-            style={{ color: '#b6bec9', fontFamily: 'Muli, sans-serif' }}
+            style={{ color: '#b6bec9', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
           >
             Helping businesses make smarter decisions with data.
           </p>
@@ -69,7 +69,7 @@ export default function Home() {
                 </h3>
                 <p
                   className="text-sm leading-relaxed"
-                  style={{ color: '#5e5e5e', fontFamily: 'Muli, sans-serif' }}
+                  style={{ color: '#5e5e5e', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
                 >
                   {f.body}
                 </p>

@@ -15,7 +15,7 @@ export default function CookieBar() {
       <div className="max-w-[1160px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
         <p
           className="text-xs leading-relaxed text-center sm:text-left"
-          style={{ color: '#a4a4a4', fontFamily: 'var(--font-muli), Muli, sans-serif' }}
+          style={{ color: '#a4a4a4', fontFamily: 'var(--font-muli), var(--font-mulish), Mulish, sans-serif' }}
         >
           This website uses cookies. We use cookies to analyze website traffic and optimize your
           website experience. By accepting our use of cookies, your data will be aggregated with

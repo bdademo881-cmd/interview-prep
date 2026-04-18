@@ -39,7 +39,7 @@ export default function Contact() {
         <div className="max-w-[900px] mx-auto">
           <p
             className="text-base md:text-lg leading-relaxed mb-12"
-            style={{ color: '#5e5e5e', fontFamily: 'Muli, sans-serif' }}
+            style={{ color: '#5e5e5e', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
           >
             Let us tailor a service package that meets your needs. Tell us a little about your
             business, and we will get back to you with some ideas as soon as possible.
@@ -58,7 +58,7 @@ export default function Contact() {
               </p>
               <p
                 className="text-sm leading-relaxed"
-                style={{ color: '#5e5e5e', fontFamily: 'Muli, sans-serif' }}
+                style={{ color: '#5e5e5e', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
               >
                 We have received your message and will get back to you shortly.
               </p>
@@ -81,7 +81,7 @@ export default function Contact() {
                   style={{
                     backgroundColor: '#f7f7f7',
                     color: '#1a2b3a',
-                    fontFamily: 'Muli, sans-serif',
+                    fontFamily: 'var(--font-mulish), Mulish, sans-serif',
                     border: '1px solid #ddd',
                     outline: 'none',
                   }}
@@ -104,7 +104,7 @@ export default function Contact() {
                   style={{
                     backgroundColor: '#f7f7f7',
                     color: '#1a2b3a',
-                    fontFamily: 'Muli, sans-serif',
+                    fontFamily: 'var(--font-mulish), Mulish, sans-serif',
                     border: '1px solid #ddd',
                     outline: 'none',
                   }}
@@ -127,7 +127,7 @@ export default function Contact() {
                   style={{
                     backgroundColor: '#f7f7f7',
                     color: '#1a2b3a',
-                    fontFamily: 'Muli, sans-serif',
+                    fontFamily: 'var(--font-mulish), Mulish, sans-serif',
                     border: '1px solid #ddd',
                     outline: 'none',
                   }}
@@ -161,7 +161,7 @@ export default function Contact() {
             </h2>
             <div
               className="space-y-1 text-sm"
-              style={{ color: '#5e5e5e', fontFamily: 'Muli, sans-serif' }}
+              style={{ color: '#5e5e5e', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
             >
               <p>Monday – Friday: 9am – 5pm</p>
               <p>Saturday – Sunday: Closed</p>
