@@ -1,6 +1,6 @@
-# Interview Prep - Data Science Interview Questions
+# DataPrep - Data Interview Practice Platform
 
-A modern, responsive web app for practicing data science and analytics interview questions. Built with **Next.js 14**, **React**, and **Tailwind CSS**.
+A modern, responsive web app for practicing data science and analytics interview questions. Built with **Next.js 16**, **React**, and **Tailwind CSS**.
 
 ## Features
 
@@ -9,13 +9,13 @@ A modern, responsive web app for practicing data science and analytics interview
 - 📖 **Structured answers** with Approach + Conclusion format
 - 🤖 **AI explanations** (click to reveal)
 - 📱 **Fully responsive** design
-- ⚡ **Zero-config Vercel deployment**
+- ⚡ **Automatic GitHub CI/CD** with Vercel
 
 ## Tech Stack
 
 | Tech | Version |
 |------|---------|
-| Next.js | 14.2.3 |
+| Next.js | 16.2.4 |
 | React | ^18 |
 | Tailwind CSS | ^3.3.0 |
 | TypeScript | ^5 |
@@ -34,7 +34,6 @@ interview-prep/
 │           └── page.tsx     # Question detail (/questions/[id])
 ├── data/
 │   └── questions.json       # All mock data (import-based)
-├── public/                  # Static assets
 ├── package.json
 ├── tailwind.config.ts
 ├── postcss.config.js
@@ -44,45 +43,19 @@ interview-prep/
 ## Local Development
 
 ```bash
-# Install dependencies
 npm install
-
-# Start dev server
 npm run dev
-
 # Open http://localhost:3000
 ```
 
-## Deploy to Vercel
-
-### Option A: One-Click Deploy
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/YOUR_USERNAME/interview-prep)
-
-### Option B: CLI
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Login
-vercel login
-
-# Deploy (interactive)
-vercel
-
-# Deploy to production
-vercel --prod
-```
-
-### Option C: GitHub Integration
+## Deploy with Vercel + GitHub
 
 1. Push this repo to GitHub
 2. Go to [vercel.com/new](https://vercel.com/new)
-3. Import your GitHub repo
+3. Import **bdademo881-cmd/interview-prep**
 4. Vercel auto-detects Next.js — click **Deploy**
 
-No configuration needed. Environment variables, build commands, and routing are all handled automatically.
+Every push to the `master` branch triggers an automatic production deployment.
 
 ## Adding New Questions
 
@@ -114,7 +87,3 @@ Edit `data/questions.json`. Each question follows this schema:
 - Add user auth and progress tracking
 - Add a shuffle/practice mode
 - Add a dark mode
-
----
-
-Built with ❤️ using Next.js and Tailwind CSS.
