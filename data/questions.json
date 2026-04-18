@@ -1,0 +1,158 @@
+[
+  {
+    "id": "1",
+    "title": "What is the difference between INNER JOIN and LEFT JOIN?",
+    "category": "SQL",
+    "difficulty": "easy",
+    "tags": ["JOIN", "SQL Basics"],
+    "question": "Explain the difference between INNER JOIN and LEFT JOIN in SQL. When would you use each one?",
+    "answer": {
+      "approach": "INNER JOIN returns only the rows where there is a match in both tables. LEFT JOIN returns all rows from the left table, and the matched rows from the right table. If there is no match, the result is NULL on the right side.",
+      "conclusion": "Use INNER JOIN when you only want matching records from both tables. Use LEFT JOIN when you want all records from the left table regardless of matches, which is common for reporting and analysis where missing data is meaningful."
+    },
+    "aiExplanation": "INNER JOIN filters out rows without matches, making it ideal for finding intersections between tables—like customers who have placed orders. LEFT JOIN preserves all left-table rows, which is essential for 'include all X even if they have no Y' scenarios, such as listing all products including those never purchased. Performance-wise, LEFT JOINs can be slightly slower on large datasets since they cannot eliminate rows early in the execution plan."
+  },
+  {
+    "id": "2",
+    "title": "How would you design an A/B test for a new recommendation algorithm?",
+    "category": "Experiment",
+    "difficulty": "medium",
+    "tags": ["A/B Testing", "Experiment Design", "Statistics"],
+    "question": "Design an A/B test to evaluate whether a new recommendation algorithm increases user engagement. What metrics would you track, and how would you determine sample size?",
+    "answer": {
+      "approach": "First, define primary metric (e.g., CTR, conversion rate) and guardrail metrics (e.g., latency, revenue). Randomize users into control and treatment groups. Calculate required sample size using power analysis (typically 80% power, 5% significance level).",
+      "conclusion": "Run the experiment for at least 2 weeks to capture weekly cycles. Analyze using a two-proportion z-test or Mann-Whitney U test for non-normal distributions. Launch if p-value < 0.05 and effect size is practically significant."
+    },
+    "aiExplanation": "For recommendation systems, key metrics include CTR (+5-10% lift is meaningful), watch time or dwell time, and repeat engagement rate. Be cautious of novelty effects—users may initially engage more with new recommendations simply because they're new. Stratify your randomization by user tenure, geography, or platform to reduce variance. Consider using CUPED for variance reduction to detect smaller effects with the same sample size."
+  },
+  {
+    "id": "3",
+    "title": "What metrics would you use to measure the success of a new food delivery app feature?",
+    "category": "Product",
+    "difficulty": "medium",
+    "tags": ["Product Metrics", "KPIs", "Growth"],
+    "question": "Your team just launched a 'live order tracking' feature for a food delivery app. How would you measure its success? Which metrics matter most?",
+    "answer": {
+      "approach": "Define success metrics at three levels: acquisition (feature adoption rate), engagement (tracking session duration, return usage), and business impact (order completion rate, retention, revenue).",
+      "conclusion": "Track NPS and in-app feedback specifically for the tracking feature. If the feature drives higher order completion and repeat orders, it's a success. Watch for cases where excessive tracking anxiety might hurt conversion."
+    },
+    "aiExplanation": "Leading indicators: feature adoption (% of orders using live tracking), time spent on tracking screen, and map interactions. Lagging indicators: order cancellation rate after dispatch (down is good), customer support tickets about order status (down is good), and LTV of users who enabled tracking (higher is good). Segment by user type—first-time users may rely more on tracking for trust building."
+  },
+  {
+    "id": "4",
+    "title": "Explain window functions in SQL with an example",
+    "category": "SQL",
+    "difficulty": "medium",
+    "tags": ["Window Functions", "Analytics", "SQL"],
+    "question": "What are SQL window functions? Give an example where they are more useful than GROUP BY.",
+    "answer": {
+      "approach": "Window functions perform calculations across a set of rows related to the current row, without collapsing rows like GROUP BY does. Key functions: ROW_NUMBER, RANK, SUM, AVG, LAG, LEAD.",
+      "conclusion": "Use window functions when you need both row-level detail and aggregate context—like ranking users within a cohort while keeping individual user data visible. GROUP BY would lose the individual rows; window functions preserve them."
+    },
+    "aiExplanation": "Classic use case: calculating each employee's salary as a percentage of their department's total. With GROUP BY, you lose individual rows. With window functions: SELECT name, salary, department, salary / SUM(salary) OVER (PARTITION BY department) as pct_of_dept FROM employees. PARTITION BY defines the window scope. ORDER BY within the window controls row ordering for functions like LAG/LEAD."
+  },
+  {
+    "id": "5",
+    "title": "How do you handle missing data in a dataset?",
+    "category": "SQL",
+    "difficulty": "hard",
+    "tags": ["Data Cleaning", "NULL Handling", "SQL"],
+    "question": "When analyzing a dataset with missing values, what strategies would you use to handle them? What are the trade-offs?",
+    "answer": {
+      "approach": "First, understand why data is missing (MCAR, MAR, MNAR). Strategies: (1) Delete rows if missing % is low and MCAR. (2) Impute with mean/median/mode for simple cases. (3) Use ML models (KNN, MICE) for sophisticated imputation. (4) Create a 'missing' flag column.",
+      "conclusion": "Always document your imputation strategy and its assumptions. For production systems, prefer simpler methods that are robust to distribution shifts. Consider whether the missingness itself carries signal."
+    },
+    "aiExplanation": "In SQL, COALESCE() and NULLIF() are your first tools. CASE WHEN column IS NULL THEN 'missing' ELSE column END preserves missingness signal. For time series, forward-fill (LAST_VALUE ignore nulls) or interpolation may apply. For A/B test analysis, listwise deletion can introduce bias—consider multiple imputation or sensitivity analysis to check robustness."
+  },
+  {
+    "id": "6",
+    "title": "Design an experiment to test if push notifications increase user retention",
+    "category": "Experiment",
+    "difficulty": "medium",
+    "tags": ["Retention", "Experiment Design", "Push Notifications"],
+    "question": "Design an experiment to determine whether sending daily push notifications increases 7-day retention. What are the key considerations?",
+    "answer": {
+      "approach": "Randomize users into 3 groups: (1) no notifications, (2) generic daily notifications, (3) personalized notifications. Track 7-day retention as primary metric. Secondary: session frequency, churn rate, notification opt-out rate.",
+      "conclusion": "If personalized notifications significantly outperform generic while not increasing opt-outs, scale personalized. If opt-outs spike in notification groups, the feature may be eroding trust. Check for novelty and fatigue effects over 3+ weeks."
+    },
+    "aiExplanation": "Key confounders: existing notification preference (some users already opted in), device type (iOS vs Android have different notification behaviors), and user engagement level at enrollment. Consider a factorial design to test notification timing independently. Use intention-to-treat analysis—don't exclude users who disabled notifications post-enrollment. Watch for notification fatigue: engagement often decays after week 2-3."
+  },
+  {
+    "id": "7",
+    "title": "What is the difference between correlation and causation?",
+    "category": "Experiment",
+    "difficulty": "easy",
+    "tags": ["Statistics", "Causality", "Data Literacy"],
+    "question": "Explain the difference between correlation and causation. How would you establish causality in a business context?",
+    "answer": {
+      "approach": "Correlation means two variables move together; causation means one directly influences the other. Many correlations are spurious due to confounders, reverse causality, or coincidence.",
+      "conclusion": "To establish causality: run a randomized experiment (A/B test). If that's not feasible, use natural experiments, instrumental variables, regression discontinuity, or difference-in-differences. In business, A/B testing is the gold standard."
+    },
+    "aiExplanation": "Classic example: ice cream sales and drowning rates are correlated because both increase in summer (confounder: temperature). In data science, spurious correlations are everywhere—always ask 'what else could explain this?' Instrumental variables (IV) are powerful when randomization is impossible—find a variable that affects the treatment but not the outcome directly. Example: using proximity to a distribution center as an instrument for delivery speed's effect on sales."
+  },
+  {
+    "id": "8",
+    "title": "How would you define and measure product-market fit?",
+    "category": "Product",
+    "difficulty": "hard",
+    "tags": ["Product Strategy", "Product-Market Fit", "Growth"],
+    "question": "How do you know when your product has achieved product-market fit? What metrics and signals would you look for?",
+    "answer": {
+      "approach": "Sean Ellis's test: ask users 'How would you feel if you could no longer use this product?' If >40% say 'very disappointed', you likely have PMF. Quantitative signals: organic growth rate, NPS > 50, retention curves flattening, word-of-mouth referrals.",
+      "conclusion": "Track cohort retention curves—if the curve flattens above 20% at day 30+, that's a strong PMF signal. Also watch organic traffic growth and viral coefficient. If users self-organize workflows around your product, you've likely crossed the threshold."
+    },
+    "aiExplanation": "Sean Ellis's 40% threshold comes from analyzing hundreds of startups—those above it tend to grow fast; those below struggle. For B2B, PMF signals include enterprise customers renewing, expanding seats within accounts, and unsolicited inbound leads. Watch for retention asymptote: if users who reach a certain engagement level (e.g., 10 sessions in 30 days) almost never churn, you've found your 'aha moment' and PMF for that cohort."
+  },
+  {
+    "id": "9",
+    "title": "How would you approach a data migration from legacy database to new system?",
+    "category": "Product",
+    "difficulty": "hard",
+    "tags": ["Data Engineering", "System Design", "Data Quality"],
+    "question": "Your company is migrating from a legacy MySQL database to a modern data warehouse. How would you plan and execute this migration while ensuring data integrity?",
+    "answer": {
+      "approach": "Phases: (1) Inventory all data sources and understand schemas. (2) Build ETL pipelines with validation. (3) Run parallel writes to both systems during shadow period. (4) Validate data consistency row-by-row. (5) Gradual traffic switch with rollback plan. (6) Monitor for anomalies post-migration.",
+      "conclusion": "Never migrate in a big-bang. Use a dual-write period where new records go to both systems, then backfill historical data to new system, then switch reads. Always have a rollback strategy and monitor error rates obsessively during cutover."
+    },
+    "aiExplanation": "Key challenges: schema differences (denormalized vs normalized), data type mismatches, handling NULLs consistently, and preserving historical data without downtime. Use a checksum approach: compute MD5/SHA hashes of row contents in both systems to validate. For large tables, use chunked migration with checkpointing. Log all migration metrics—records processed, failed, time elapsed—to diagnose issues. Consider using a change data capture (CDC) tool like Debezium for continuous replication during the transition."
+  },
+  {
+    "id": "10",
+    "title": "Build a SQL query to find the second highest salary in each department",
+    "category": "SQL",
+    "difficulty": "easy",
+    "tags": ["SQL", "Window Functions", "Ranking"],
+    "question": "Write a SQL query to find employees with the second highest salary in each department. What edge cases should you consider?",
+    "answer": {
+      "approach": "Use DENSE_RANK() partitioned by department, ordered by salary DESC. Filter where rank = 2. Edge cases: departments with only 1 employee (no second highest), ties at rank 2 (multiple employees with same second-highest salary).",
+      "conclusion": "DENSE_RANK() avoids gaps in ranking (1, 1, 2). Use RANK() if you want gaps (1, 1, 3). ROW_NUMBER() would arbitrarily pick one if there are ties. Choose based on business requirement for handling ties."
+    },
+    "aiExplanation": "Query: WITH ranked AS (SELECT *, DENSE_RANK() OVER (PARTITION BY department ORDER BY salary DESC) as rn FROM employees) SELECT * FROM ranked WHERE rn = 2. Edge cases: (1) Department with 1 person—returns empty, which may or may not be desired. (2) Multiple people tied for 2nd—DENSE_RANK returns all; ROW_NUMBER returns 1 arbitrarily. (3) All employees in a department have same salary—DENSE_RANK returns no one for rank 2. Always test with these edge cases."
+  },
+  {
+    "id": "11",
+    "title": "How would you detect and prevent fraud in a marketplace?",
+    "category": "Product",
+    "difficulty": "hard",
+    "tags": ["Fraud Detection", "Machine Learning", "Risk"],
+    "question": "Design a fraud detection system for a two-sided marketplace (like eBay or Airbnb). How do you balance catching fraud and minimizing false positives that hurt legitimate users?",
+    "answer": {
+      "approach": "Layered approach: (1) Rule-based filters for obvious fraud. (2) ML models (random forest, gradient boosting) for pattern detection. (3) Network analysis to detect coordinated fraud rings. (4) Manual review for high-risk cases. Balance precision vs recall using business cost matrices.",
+      "conclusion": "Prioritize explainability—agents need to tell users why they were blocked. Set up feedback loops: false positives (legitimate users blocked) are more costly than false negatives (fraud slips through) in the short term. Monitor precision/recall tradeoff continuously as fraud patterns evolve."
+    },
+    "aiExplanation": "Key signals: velocity checks (too many transactions in short time), device fingerprinting (same device across multiple accounts), behavioral biometrics (typing patterns), and social graph analysis (fraud rings). Use a two-stage model: fast, cheap model screens all transactions; slow, accurate model does deep analysis on borderline cases. A/B test your fraud rules—blocking too aggressively hurts revenue and user trust."
+  },
+  {
+    "id": "12",
+    "title": "What is selection bias and how do you mitigate it?",
+    "category": "Experiment",
+    "difficulty": "easy",
+    "tags": ["Bias", "Statistics", "Data Quality"],
+    "question": "What is selection bias? How does it affect data analysis, and what techniques can you use to mitigate it?",
+    "answer": {
+      "approach": "Selection bias occurs when the sample used in analysis is not representative of the population, often due to non-random sampling. It leads to misleading conclusions.",
+      "conclusion": "Mitigate by using random sampling, stratification, propensity score matching, or inverse probability weighting. In experiments, ensure proper randomization. Always audit your data collection process for systematic exclusion."
+    },
+    "aiExplanation": "Common forms: (1) Survivorship bias—analyzing only successful companies, ignoring failed ones. (2) Self-selection bias—users who opt into features are different from those who don't. (3) Sampling bias—surveying only accessible users. Netflix's famous 'randomized Netflix withdrawal' study avoided all these by randomly assigning users to continue/discontinue, the gold standard. In observational data, propensity score matching can approximate randomization by matching treated units with similar untreated units."
+  }
+]
