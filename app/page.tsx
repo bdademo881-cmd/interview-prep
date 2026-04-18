@@ -111,6 +111,14 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-4">
             <Link href="/questions" className="hover:text-slate-600 transition-colors">Questions</Link>
+            <a
+              href="https://github.com/bdademo881-cmd/interview-prep"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-slate-600 transition-colors"
+            >
+              GitHub
+            </a>
             <span className="text-slate-200">·</span>
             <span>© {new Date().getFullYear()} DataPrep</span>
           </div>
