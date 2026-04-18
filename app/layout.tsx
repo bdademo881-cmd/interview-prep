@@ -8,8 +8,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Ace Your Data Interview',
-  description: 'Practice data science and analytics interview questions',
+  title: 'BizData Analytics',
+  description: 'Helping businesses make smarter decisions with data.',
 }
 
 export default function RootLayout({

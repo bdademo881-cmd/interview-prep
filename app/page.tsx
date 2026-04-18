@@ -1,129 +1,99 @@
 'use client'
 
-import Link from 'next/link'
-import { useEffect } from 'react'
+import { useState } from 'react'
 
 export default function Home() {
-  useEffect(() => {
-    console.log('[Home] Page loaded at', new Date().toISOString())
-  }, [])
+  const [cookieAccepted, setCookieAccepted] = useState(false)
+
+  const features = [
+    {
+      title: 'Technical Experience',
+      icon: (
+        <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+      body: 'We are well-versed in a variety of data services and solutions. We work with just about any technology that a business would encounter. We use this expertise to help customers with projects of various sizes.',
+    },
+    {
+      title: 'High ROI',
+      icon: (
+        <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+      ),
+      body: 'Do you spend most of your data solutions budget on maintaining your current system? Many companies find that constant maintenance eats into their budget for new technology. By outsourcing your data management to us, you can focus on what you do best—running your business.',
+    },
+    {
+      title: 'Satisfaction Guaranteed',
+      icon: (
+        <svg className="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      ),
+      body: 'The world of technology can be fast-paced and scary. That\'s why our goal is to provide an experience that is tailored to your company\'s needs. No matter the budget, we pride ourselves on providing professional customer service. We guarantee you will be satisfied with our work.',
+    },
+  ]
 
   return (
-    <main className="min-h-screen bg-white flex flex-col">
-      {/* Nav */}
-      <nav className="w-full px-6 py-5 flex items-center justify-between max-w-5xl mx-auto border-b border-slate-100">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-brand-600 rounded-lg flex items-center justify-center">
-            <span className="text-white font-bold text-xs">DS</span>
-          </div>
-          <span className="font-semibold text-slate-800 tracking-tight">DataPrep</span>
-        </div>
-        <div className="flex items-center gap-6 text-sm">
-          <Link href="/questions" className="text-slate-500 hover:text-brand-600 transition-colors font-medium">
-            Questions
-          </Link>
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-400 hover:text-slate-600 transition-colors"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-            </svg>
-          </a>
-        </div>
-      </nav>
-
+    <main className="min-h-screen flex flex-col">
       {/* Hero */}
-      <div className="flex-1 flex items-center justify-center px-6 py-20">
-        <div className="max-w-2xl text-center fade-in">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-1.5 bg-brand-50 border border-brand-100 text-brand-700 rounded-full px-4 py-1.5 text-sm font-medium mb-8">
-            <span className="w-1.5 h-1.5 bg-brand-500 rounded-full animate-pulse"></span>
-            12 Questions Available
-          </div>
-
-          {/* Headline */}
-          <h1 className="text-5xl sm:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-[1.1]">
-            Ace Your{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-indigo-600">
-              Data Interview
-            </span>
-          </h1>
-
-          {/* Sub */}
-          <p className="text-lg text-slate-500 mb-10 max-w-lg mx-auto leading-relaxed">
-            Structured practice for SQL, experiment design, and product analytics.
-            Written by engineers, refined for candidates.
+      <section className="flex-1 flex flex-col items-center justify-center px-6 py-24 text-center">
+        <div className="max-w-2xl">
+          <p className="text-xs font-semibold tracking-widest text-blue-600 uppercase mb-4">
+            Data Solutions
           </p>
+          <h1 className="text-5xl sm:text-6xl font-extrabold text-gray-900 tracking-tight mb-6">
+            BizData Analytics
+          </h1>
+          <p className="text-gray-500 text-lg leading-relaxed">
+            Helping businesses make smarter decisions with data.
+          </p>
+        </div>
+      </section>
 
-          {/* CTA */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/questions"
-              className="group inline-flex items-center gap-2.5 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-8 py-4 rounded-xl transition-all shadow-lg shadow-brand-600/20 hover:shadow-brand-600/30 hover:-translate-y-px"
-            >
-              Start Practicing
-              <svg
-                className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+      {/* About Us */}
+      <section className="py-20 px-6 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-16">
+            About Us
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {features.map((f) => (
+              <div
+                key={f.title}
+                className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
               >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-            <span className="text-sm text-slate-400">No signup required · Always free</span>
-          </div>
-
-          {/* Divider */}
-          <div className="w-px h-12 bg-slate-200 mx-auto my-12" />
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-slate-900">12</div>
-              <div className="text-sm text-slate-500 mt-1.5 font-medium">Questions</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-slate-900">3</div>
-              <div className="text-sm text-slate-500 mt-1.5 font-medium">Categories</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-slate-900">3</div>
-              <div className="text-sm text-slate-500 mt-1.5 font-medium">Difficulty Levels</div>
-            </div>
+                <div className="mb-5">{f.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-4">{f.title}</h3>
+                <p className="text-gray-500 leading-relaxed text-sm">{f.body}</p>
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Footer */}
-      <footer className="border-t border-slate-100 py-6 px-6">
-        <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-5 bg-brand-600 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-[9px]">DS</span>
-            </div>
-            <span className="font-medium text-slate-500">DataPrep</span>
-            <span className="text-slate-300">·</span>
-            <span>Practice made simple</span>
-          </div>
-          <div className="flex items-center gap-4">
-            <Link href="/questions" className="hover:text-slate-600 transition-colors">Questions</Link>
-            <a
-              href="https://github.com/bdademo881-cmd/interview-prep"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-slate-600 transition-colors"
-            >
-              GitHub
-            </a>
-            <span className="text-slate-200">·</span>
-            <span>© {new Date().getFullYear()} DataPrep</span>
-          </div>
-        </div>
+      <footer className="py-8 px-6 text-center text-xs text-gray-400">
+        <p>Copyright © 2022 BizData Analytics SOLUTIONS INC. - All Rights Reserved.</p>
       </footer>
+
+      {/* Cookie Notice */}
+      {!cookieAccepted && (
+        <div className="fixed bottom-0 inset-x-0 bg-gray-800 text-gray-300 text-xs px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-3 z-50">
+          <p>
+            This website uses cookies. We use cookies to analyze website traffic and optimize your
+            website experience. By accepting our use of cookies, your data will be aggregated with
+            all other user data.
+          </p>
+          <button
+            onClick={() => setCookieAccepted(true)}
+            className="shrink-0 bg-blue-600 hover:bg-blue-700 text-white font-medium px-5 py-2 rounded transition-colors"
+          >
+            Accept
+          </button>
+        </div>
+      )}
     </main>
   )
 }
