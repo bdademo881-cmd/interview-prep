@@ -1,4 +1,13 @@
-'use client'
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'BizData Analytics | Data Solutions & Business Intelligence',
+  description:
+    'Helping businesses make smarter decisions with data. Expert data analysis, predictive modeling, AI/ML integration, and visualization services.',
+  alternates: {
+    canonical: 'https://interview-prep-chi-one.vercel.app',
+  },
+}
 
 export default function Home() {
   const features = [
@@ -8,7 +17,7 @@ export default function Home() {
     },
     {
       title: 'High ROI',
-      body: 'Do you spend most of your data solutions budget on maintaining your current system? Many companies find that constant maintenance eats into your budget for new technology. By outsourcing your data management to us, you can focus on what you do best—running your business.',
+      body: 'Do you spend most of your data solutions budget on maintaining your current system? Many companies find that constant maintenance eats into your budget for new technology. By outsourcing your data management to us, you can focus on what you do best\u2014running your business.',
     },
     {
       title: 'Satisfaction Guaranteed',
@@ -22,6 +31,7 @@ export default function Home() {
       <section
         className="flex flex-col items-center justify-center text-center px-6"
         style={{ minHeight: '75vh', paddingTop: '80px' }}
+        aria-labelledby="hero-heading"
       >
         <div className="max-w-[66%]">
           <p
@@ -31,6 +41,7 @@ export default function Home() {
             Data Solutions
           </p>
           <h1
+            id="hero-heading"
             className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight mb-6"
             style={{ color: '#fff', fontFamily: 'Quicksand, sans-serif' }}
           >
@@ -46,9 +57,14 @@ export default function Home() {
       </section>
 
       {/* About Us */}
-      <section className="px-6 py-16 md:py-20" style={{ backgroundColor: '#fff' }}>
+      <section
+        className="px-6 py-16 md:py-20"
+        style={{ backgroundColor: '#fff' }}
+        aria-labelledby="about-heading"
+      >
         <div className="max-w-[1160px] mx-auto">
           <h2
+            id="about-heading"
             className="text-3xl md:text-4xl font-bold text-center mb-16"
             style={{ color: '#1a2b3a', fontFamily: 'Quicksand, sans-serif' }}
           >
@@ -56,7 +72,7 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
             {features.map((f) => (
-              <div
+              <article
                 key={f.title}
                 className="p-8 rounded"
                 style={{ backgroundColor: '#f7f7f7', borderTop: '3px solid #64839e' }}
@@ -73,7 +89,7 @@ export default function Home() {
                 >
                   {f.body}
                 </p>
-              </div>
+              </article>
             ))}
           </div>
         </div>

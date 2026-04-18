@@ -11,11 +11,12 @@ export default function CookieBar() {
     <div
       className="fixed bottom-0 left-0 right-0 z-50 px-6 py-4"
       style={{ backgroundColor: '#1a2b3a' }}
+      role="alert"
     >
       <div className="max-w-[1160px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
         <p
           className="text-xs leading-relaxed text-center sm:text-left"
-          style={{ color: '#a4a4a4', fontFamily: 'var(--font-muli), var(--font-mulish), Mulish, sans-serif' }}
+          style={{ color: '#a4a4a4', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
         >
           This website uses cookies. We use cookies to analyze website traffic and optimize your
           website experience. By accepting our use of cookies, your data will be aggregated with
@@ -27,7 +28,7 @@ export default function CookieBar() {
           style={{
             backgroundColor: '#64839e',
             color: '#fff',
-            fontFamily: 'var(--font-quicksand), Quicksand, sans-serif',
+            fontFamily: 'Quicksand, sans-serif',
           }}
         >
           Accept
