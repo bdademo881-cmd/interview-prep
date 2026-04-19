@@ -29,7 +29,7 @@ export default function Home() {
     <main>
       {/* Hero with background image */}
       <section
-        className="flex flex-col items-center justify-center text-center px-6 bg-cover bg-center bg-no-repeat"
+        className="relative overflow-hidden flex flex-col items-center justify-center text-center px-6 bg-cover bg-center bg-no-repeat"
         style={{
           minHeight: '75vh',
           paddingTop: '80px',
@@ -39,7 +39,7 @@ export default function Home() {
         aria-labelledby="hero-heading"
       >
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(10,22,40,0.45)', paddingTop: '80px' }} />
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(10,22,40,0.45)' }} />
         <div className="relative z-10 max-w-[66%]">
           <p
             className="text-xs font-semibold tracking-[0.167em] uppercase mb-6"

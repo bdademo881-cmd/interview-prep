@@ -21,7 +21,7 @@ export default function Services() {
     <main>
       {/* Hero with background image */}
       <section
-        className="flex flex-col items-center justify-center text-center px-6 bg-cover bg-center bg-no-repeat relative"
+        className="relative overflow-hidden flex flex-col items-center justify-center text-center px-6 bg-cover bg-center bg-no-repeat"
         style={{
           minHeight: '75vh',
           paddingTop: '80px',
