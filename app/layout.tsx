@@ -4,6 +4,7 @@ import './globals.css'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import CookieBar from './components/CookieBar'
+import AuthProvider from './components/AuthProvider'
 
 const quicksand = Quicksand({
   subsets: ['latin'],
@@ -92,10 +93,12 @@ export default function RootLayout({
           backgroundColor: '#333',
         }}
       >
-        <Header />
-        {children}
-        <Footer />
-        <CookieBar />
+        <AuthProvider>
+          <Header />
+          {children}
+          <Footer />
+          <CookieBar />
+        </AuthProvider>
       </body>
     </html>
   )

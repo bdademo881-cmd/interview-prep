@@ -3,17 +3,25 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import { useSession, signOut } from 'next-auth/react'
 import { useState } from 'react'
 
 export default function Header() {
   const pathname = usePathname()
+  const { data: session } = useSession()
   const [menuOpen, setMenuOpen] = useState(false)
 
-  const navLinks = [
+  const publicLinks = [
     { href: '/', label: 'Home' },
     { href: '/services', label: 'Services' },
     { href: '/contact-us', label: 'Contact Us' },
   ]
+
+  const authLinks = session
+    ? [{ href: '/dashboard', label: 'Dashboard' }]
+    : [{ href: '/login', label: 'Login' }]
+
+  const allLinks = [...publicLinks, ...authLinks]
 
   return (
     <header
@@ -22,7 +30,6 @@ export default function Header() {
     >
       <div className="max-w-[1160px] mx-auto px-6">
         <div className="flex items-center justify-between" style={{ height: '80px' }}>
-          {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
               src="/images/logo.png"
@@ -35,7 +42,7 @@ export default function Header() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
-            {navLinks.map((link) => {
+            {allLinks.map((link) => {
               const active = pathname === link.href
               return (
                 <Link
@@ -51,6 +58,15 @@ export default function Header() {
                 </Link>
               )
             })}
+            {session && (
+              <button
+                onClick={() => signOut({ callbackUrl: '/' })}
+                className="text-sm font-medium tracking-wider uppercase transition-colors"
+                style={{ color: '#64839e', fontFamily: 'Quicksand, sans-serif' }}
+              >
+                Sign Out
+              </button>
+            )}
           </nav>
 
           {/* Mobile burger */}
@@ -74,7 +90,7 @@ export default function Header() {
       {menuOpen && (
         <div className="md:hidden" style={{ backgroundColor: '#1a2b3a' }}>
           <nav className="flex flex-col px-6 pb-6 gap-4" aria-label="Mobile navigation">
-            {navLinks.map((link) => {
+            {allLinks.map((link) => {
               const active = pathname === link.href
               return (
                 <Link
@@ -91,6 +107,15 @@ export default function Header() {
                 </Link>
               )
             })}
+            {session && (
+              <button
+                onClick={() => { setMenuOpen(false); signOut({ callbackUrl: '/' }) }}
+                className="text-sm font-medium tracking-wider uppercase text-left"
+                style={{ color: '#64839e', fontFamily: 'Quicksand, sans-serif' }}
+              >
+                Sign Out
+              </button>
+            )}
           </nav>
         </div>
       )}
