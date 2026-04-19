@@ -12,14 +12,20 @@ export default function ContactClient() {
   }
 
   return (
-    <main style={{ backgroundColor: '#333' }}>
-      {/* Hero */}
+    <main>
+      {/* Hero with background image */}
       <section
-        className="flex flex-col items-center justify-center text-center px-6"
-        style={{ minHeight: '75vh', paddingTop: '80px' }}
+        className="flex flex-col items-center justify-center text-center px-6 bg-cover bg-center bg-no-repeat relative"
+        style={{
+          minHeight: '75vh',
+          paddingTop: '80px',
+          backgroundImage: "url('/images/hero-bg.jpg')",
+          backgroundColor: '#0a1628',
+        }}
         aria-labelledby="contact-hero-heading"
       >
-        <div className="max-w-[66%]">
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(10,22,40,0.45)' }} />
+        <div className="relative z-10 max-w-[66%]">
           <p
             className="text-xs font-semibold tracking-[0.167em] uppercase mb-6"
             style={{ color: '#64839e', fontFamily: 'Quicksand, sans-serif' }}
@@ -177,8 +183,8 @@ export default function ContactClient() {
               className="space-y-1 text-sm"
               style={{ color: '#5e5e5e', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
             >
-              <p>Monday – Friday: 9am – 5pm</p>
-              <p>Saturday – Sunday: Closed</p>
+              <p>Monday \u2013 Friday: 9am \u2013 5pm</p>
+              <p>Saturday \u2013 Sunday: Closed</p>
             </div>
           </aside>
         </div>

@@ -18,14 +18,20 @@ export default function Services() {
   ]
 
   return (
-    <main style={{ backgroundColor: '#333' }}>
-      {/* Hero */}
+    <main>
+      {/* Hero with background image */}
       <section
-        className="flex flex-col items-center justify-center text-center px-6"
-        style={{ minHeight: '75vh', paddingTop: '80px' }}
+        className="flex flex-col items-center justify-center text-center px-6 bg-cover bg-center bg-no-repeat relative"
+        style={{
+          minHeight: '75vh',
+          paddingTop: '80px',
+          backgroundImage: "url('/images/hero-bg.jpg')",
+          backgroundColor: '#0a1628',
+        }}
         aria-labelledby="services-hero-heading"
       >
-        <div className="max-w-[66%]">
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(10,22,40,0.45)' }} />
+        <div className="relative z-10 max-w-[66%]">
           <p
             className="text-xs font-semibold tracking-[0.167em] uppercase mb-6"
             style={{ color: '#64839e', fontFamily: 'Quicksand, sans-serif' }}

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
 
@@ -22,16 +23,18 @@ export default function Header() {
       <div className="max-w-[1160px] mx-auto px-6">
         <div className="flex items-center justify-between" style={{ height: '80px' }}>
           {/* Logo */}
-          <Link
-            href="/"
-            className="text-white font-bold text-lg tracking-wide"
-            style={{ fontFamily: 'Quicksand, sans-serif' }}
-          >
-            BizData Analytics
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/logo.png"
+              alt="BizData Analytics"
+              width={120}
+              height={36}
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-8" aria-label="Main navigation">
             {navLinks.map((link) => {
               const active = pathname === link.href
               return (
@@ -70,7 +73,7 @@ export default function Header() {
       {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden" style={{ backgroundColor: '#1a2b3a' }}>
-          <nav className="flex flex-col px-6 pb-6 gap-4">
+          <nav className="flex flex-col px-6 pb-6 gap-4" aria-label="Mobile navigation">
             {navLinks.map((link) => {
               const active = pathname === link.href
               return (

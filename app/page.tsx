@@ -26,14 +26,21 @@ export default function Home() {
   ]
 
   return (
-    <main style={{ backgroundColor: '#333' }}>
-      {/* Hero */}
+    <main>
+      {/* Hero with background image */}
       <section
-        className="flex flex-col items-center justify-center text-center px-6"
-        style={{ minHeight: '75vh', paddingTop: '80px' }}
+        className="flex flex-col items-center justify-center text-center px-6 bg-cover bg-center bg-no-repeat"
+        style={{
+          minHeight: '75vh',
+          paddingTop: '80px',
+          backgroundImage: "url('/images/hero-bg.jpg')",
+          backgroundColor: '#0a1628',
+        }}
         aria-labelledby="hero-heading"
       >
-        <div className="max-w-[66%]">
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0" style={{ backgroundColor: 'rgba(10,22,40,0.45)', paddingTop: '80px' }} />
+        <div className="relative z-10 max-w-[66%]">
           <p
             className="text-xs font-semibold tracking-[0.167em] uppercase mb-6"
             style={{ color: '#64839e', fontFamily: 'Quicksand, sans-serif' }}
@@ -48,10 +55,22 @@ export default function Home() {
             BizData Analytics
           </h1>
           <p
-            className="text-base md:text-lg leading-relaxed"
+            className="text-base md:text-lg leading-relaxed mb-8"
             style={{ color: '#b6bec9', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
           >
             Helping businesses make smarter decisions with data.
+          </p>
+          <p
+            className="text-sm tracking-wide"
+            style={{ color: '#a4a4a4', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
+          >
+            Business Data Analytics Solutions
+          </p>
+          <p
+            className="text-xs mt-2"
+            style={{ color: '#8899aa', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
+          >
+            We make business data analysis accessible!
           </p>
         </div>
       </section>
@@ -91,6 +110,32 @@ export default function Home() {
                 </p>
               </article>
             ))}
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap justify-center gap-6 mt-14">
+            <a
+              href="/services"
+              className="inline-block text-xs font-semibold tracking-widest uppercase px-8 py-3 border transition-colors"
+              style={{
+                borderColor: '#1a2b3a',
+                color: '#1a2b3a',
+                fontFamily: 'Quicksand, sans-serif',
+              }}
+            >
+              \u2014 See Services \u2014
+            </a>
+            <a
+              href="/contact-us"
+              className="inline-block text-xs font-semibold tracking-widest uppercase px-8 py-3 border transition-colors"
+              style={{
+                borderColor: '#1a2b3a',
+                color: '#1a2b3a',
+                fontFamily: 'Quicksand, sans-serif',
+              }}
+            >
+              \u2014 Contact Us \u2014
+            </a>
           </div>
         </div>
       </section>
