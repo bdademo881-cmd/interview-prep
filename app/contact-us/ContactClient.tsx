@@ -183,8 +183,8 @@ export default function ContactClient() {
               className="space-y-1 text-sm"
               style={{ color: '#5e5e5e', fontFamily: 'var(--font-mulish), Mulish, sans-serif' }}
             >
-              <p>Monday \u2013 Friday: 9am \u2013 5pm</p>
-              <p>Saturday \u2013 Sunday: Closed</p>
+              <p>Monday – Friday: 9am – 5pm</p>
+              <p>Saturday – Sunday: Closed</p>
             </div>
           </aside>
         </div>

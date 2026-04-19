@@ -17,7 +17,7 @@ export default function Home() {
     },
     {
       title: 'High ROI',
-      body: 'Do you spend most of your data solutions budget on maintaining your current system? Many companies find that constant maintenance eats into your budget for new technology. By outsourcing your data management to us, you can focus on what you do best\u2014running your business.',
+      body: 'Do you spend most of your data solutions budget on maintaining your current system? Many companies find that constant maintenance eats into your budget for new technology. By outsourcing your data management to us, you can focus on what you do best—running your business.',
     },
     {
       title: 'Satisfaction Guaranteed',
@@ -123,7 +123,7 @@ export default function Home() {
                 fontFamily: 'Quicksand, sans-serif',
               }}
             >
-              \u2014 See Services \u2014
+              — See Services —
             </a>
             <a
               href="/contact-us"
@@ -134,7 +134,7 @@ export default function Home() {
                 fontFamily: 'Quicksand, sans-serif',
               }}
             >
-              \u2014 Contact Us \u2014
+              — Contact Us —
             </a>
           </div>
         </div>
